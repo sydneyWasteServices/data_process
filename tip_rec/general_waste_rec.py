@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import xlwings as xw
 
-CURRENT_WEEK = '22th_2021'
+CURRENT_WEEK = '24th_2021'
 
 # PATH_ROS = 'D:\\Run Analysis\\BLOB_STORAGE\\Roster\\weekly_roster_processed\\.xlsx' 
 # df_ros = pd.read_excel(PATH_ROS)

@@ -12,7 +12,7 @@ import xlwings as xw
 
 # Any Truck can go any type of runs 
 
-current_week = '22th_2021'
+current_week = '29th_2021'
 
 PATH_suez = f'D:\\Run Analysis\\BLOB_STORAGE\\tipping_weekly\\og_tipping_suez\\weekly\\{current_week}.csv'
 
@@ -22,13 +22,11 @@ df_suez = pd.read_csv(PATH_suez)
 
 df_ros = pd.read_excel(PATH_ros)
 
-
-OTHER_ROUTE = ['APR', 'FLP', 'HYG', 'RED', 'RL 5', 'RL6', 'RL8', 'RLP', 'RLR', 'SWP','CBK', 'RLC', 'RLG', 'DOY','NEPCB','UOSCB','CMDCB','CUMCB']
+OTHER_ROUTE = ['APR', 'FLP', 'HYG', 'RED', 'RL5', 'RL6', 'RL8', 'RLP', 'RLR', 'SWP','CBK', 'RLC', 'RLG', 'DOY','NEPCB','UOSCB','CMDCB','CUMCB']
 
 df_ros= df_ros[~df_ros['Primary_route'].isin(OTHER_ROUTE)]
 
 df_ros['Primary_truck'] = df_ros.Primary_truck.str.replace(' ','')
-
 
 # Display 
 # LIST of Roster Truck 

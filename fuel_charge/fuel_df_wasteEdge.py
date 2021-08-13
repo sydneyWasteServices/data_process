@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-WEEK = '22th_2021'
+WEEK = '28th_2021'
 
 SOURCE_PATH = f'D:\\Run Analysis\\BLOB_STORAGE\\expenses_truck\\fuel\\waste_edge_fuel_transactions\\{WEEK}.xlsx'
 COMPLETED_PATH = f'D:\\Run Analysis\\BLOB_STORAGE\\expenses_truck\\fuel\\waste_edge_fuel_transactions\\{WEEK}_processed.csv'

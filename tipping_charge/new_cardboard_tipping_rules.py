@@ -11,12 +11,9 @@
 
 # Cardboard => FLP HYG RED RL5 RL6 RL8 RLP RLR
 
-
-
 # Data Audit
 # To find out what is not suppose in CB but in CB routes 
 # Display General CB route 
-
 
 # Cardboard Charge Rate difference 
 # Polytrde $120
@@ -26,7 +23,7 @@ import pandas as pd
 import numpy as np
 import xlwings as xw 
 
-CURRENT_WEEK = '21th_2021'
+CURRENT_WEEK = '28th_2021'
 
 PATH = f'D:\\Run Analysis\\BLOB_STORAGE\\tipping_weekly\\waste_edge_tipping\\{CURRENT_WEEK}.csv'
 COMPLETED_PATH = f'D:\\Run Analysis\\BLOB_STORAGE\\tipping_weekly\\processed_waste_edge_tipping\\{CURRENT_WEEK}.xlsx'

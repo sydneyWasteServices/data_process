@@ -2,22 +2,24 @@ import pandas as pd
 import numpy as np
 import xlwings as xw
 
-
 # Rather Calculating Driver's Salary per Hours 
 # Just Calculate them as per occurence of Roster
 
-CURRENT_WEEK = '21th_2021'
+
+CURRENT_WEEK = '28th_2021'
 
 PATH_ROSTER = f'D:\\Run Analysis\\BLOB_STORAGE\\Roster\\weekly_roster_processed\\{CURRENT_WEEK}.xlsx'
 PATH_PAYSHEET = f'D:\\Run Analysis\\BLOB_STORAGE\\Drivers_pay\\{CURRENT_WEEK}.xlsx'
-PAHT_COMPLETE = f'D:\\Run Analysis\\BLOB_STORAGE\\Drivers_pay\\weekly_pay_summary\\{CURRENT_WEEK}.xlsx'
+PATH_COMPLETE = f'D:\\Run Analysis\\BLOB_STORAGE\\Drivers_pay\\weekly_pay_summary\\{CURRENT_WEEK}.xlsx'
 
 df_ros = pd.read_excel(PATH_ROSTER)
 df_sal = pd.read_excel(PATH_PAYSHEET)
 
 # Remember to change the employeeID column header to EmpID 
 df_sal.EmpID = df_sal.EmpID.str.lower()
+df_sal.EmpID = df_sal.EmpID.str.strip()
 
+df_ros.Primary_employeeID = df_ros.Primary_employeeID.str.strip()
 # Occurrence of drivers on the run and Total 
 occurrence = df_ros.groupby(['Primary_employeeID','Primary_route'])['Run_type'].count().reset_index()
 
@@ -35,7 +37,6 @@ df_sal_costPerRun = pd.merge(df_roster_run_count, df_sal,
                              how='left', 
                              left_on='Primary_employeeID', 
                              right_on='EmpID')
-
 
 df_sal_costPerRun['cost_per_run']= df_sal_costPerRun.pipe(lambda data : data['portion'] * data['Total_payment'])
 
@@ -62,5 +63,5 @@ wb.sheets[2].name = 'The_Salary_Payment'
 
 wb.sheets[2].range('A1').value = df_result
 
-wb.save(PAHT_COMPLETE)
+wb.save(PATH_COMPLETE)
 wb.close()

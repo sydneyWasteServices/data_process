@@ -11,19 +11,22 @@ import xlwings as xw
 # 'REP', 'REQ', 'RRNW', 'RRR', 'SHR', 'SPD', 'SUE', 'URM', 'VEO', 'VEOACT', 'VTG', 'AUSSKIP','GRIMA']
 # UOS = ['NEPCB', 'UOSCB', 'UOSCO', 'UOSGW', 'CMDCB', 'CMDGW', 'CUMCB', 'CUMGW', 'NEPGW']
 
-WEEK_NUM = '22th_2021'
+WEEK_NUM = '28th_2021'
+TOLL_FILE_EXT = 'xlsx'
 
-PATH_TOLLCOST = f'D:\\Run Analysis\\BLOB_STORAGE\\expenses_truck\\toll\\og_toll\\{WEEK_NUM}.csv'
+PATH_TOLLCOST = f'D:\\Run Analysis\\BLOB_STORAGE\\expenses_truck\\toll\\og_toll\\{WEEK_NUM}.{TOLL_FILE_EXT}'
 PATH_TAGID = 'D:\\Run Analysis\\BLOB_STORAGE\\toll_id.csv'
 PATH_ROS = f'D:\\Run Analysis\\BLOB_STORAGE\\Roster\\weekly_roster_processed\\{WEEK_NUM}.xlsx'
 
 PATH_COMPLETE = f'D:\\Run Analysis\\BLOB_STORAGE\\expenses_truck\\toll\\weekly_summary_toll\\{WEEK_NUM}.xlsx'
 
-df_toll = pd.read_csv(PATH_TOLLCOST)
+# df_toll = pd.read_csv(PATH_TOLLCOST)
+
+df_toll = pd.read_excel(PATH_TOLLCOST)
 df_tagid = pd.read_csv(PATH_TAGID)
 df_ros = pd.read_excel(PATH_ROS)
 
-# =======================================================================
+# =======================================================================a
 # Clean the df 
 
 df_ros['Primary_truck'] = df_ros.Primary_truck.str.replace(' ', '')
